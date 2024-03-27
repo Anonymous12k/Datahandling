@@ -1,0 +1,6 @@
+# Dataset
+ages <- c(22, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80)
+
+# Create histogram
+hist(ages, breaks=5, col='skyblue', xlab='Age', 
+     ylab='Frequency', main='Distribution of Ages in a Population')
