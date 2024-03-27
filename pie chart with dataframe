@@ -1,0 +1,7 @@
+library(plotrix)
+df <- data.frame(
+  labels = c("RENT", "GROCERIES", "UTILITIES", "ENTERTAINMENT"),
+  sizes = c(30, 25, 20, 25)
+)
+pie3D(df$sizes, labels = df$labels,explode = 0.2,
+      col = rainbow(nrow(df)))
