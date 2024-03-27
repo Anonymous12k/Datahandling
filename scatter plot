@@ -1,0 +1,4 @@
+hours_studied <- c(3, 5, 7, 2, 8, 6, 4, 9)
+exam_scores <- c(65, 80, 85, 60, 90, 75, 70, 95)
+plot(hours_studied, exam_scores, pch=19, col='blue', xlab='Hours Studied',
+     ylab='Exam Scores', main='Relationship between Hours Studied and Exam Scores')
