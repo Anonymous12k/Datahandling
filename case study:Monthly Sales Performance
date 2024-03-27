@@ -1,0 +1,29 @@
+Rcode
+
+# Sample data
+months <- c('January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December')
+sales <- c(20000, 22000, 25000, 23000, 24000, 26000, 27000, 28000, 29000, 30000, 31000, 32000)
+
+# Create line chart
+plot(1:12, sales, type='o', col='blue', xaxt='n', xlab='Month', ylab='Sales ($)')
+axis(1, at=1:12, labels=months)
+title('Monthly Sales Performance')
+
+python.
+
+import matplotlib.pyplot as plt
+
+# Sample data
+months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
+sales = [20000, 22000, 25000, 23000, 24000, 26000, 27000, 28000, 29000, 30000, 31000, 32000]
+
+# Create line chart
+plt.figure(figsize=(10, 6))
+plt.plot(months, sales, marker='o', color='blue', linestyle='-')
+plt.title('Monthly Sales Performance')
+plt.xlabel('Month')
+plt.ylabel('Sales ($)')
+plt.xticks(rotation=45)
+plt.grid(True)
+plt.tight_layout()
+plt.show()
