@@ -1,0 +1,88 @@
+# Replace 'website_data.csv' with the actual file path or URL to your dataset
+website_data <- read.csv("website_data.csv")
+
+# Scatter plot of time spent on page vs. bounce rate
+plot(website_data$time_spent, website_data$bounce_rate, xlab = "Time Spent on Page (seconds)", ylab = "Bounce Rate (%)", main = "Scatter Plot")
+
+# Bar plot of total page views by page type
+barplot(tapply(website_data$page_views, website_data$page_type, sum), xlab = "Page Type", ylab = "Total Page Views", main = "Bar Plot")
+
+# Boxplot of bounce rate by device type
+boxplot(bounce_rate ~ device_type, data = website_data, xlab = "Device Type", ylab = "Bounce Rate (%)", main = "Box Plot")
+
+# Line plot of page views over time (assuming a column 'date' represents time)
+plot(website_data$date, website_data$page_views, type = "l", xlab = "Date", ylab = "Page Views", main = "Line Plot")
+
+# Histogram of time spent on page
+hist(website_data$time_spent, xlab = "Time Spent on Page (seconds)", ylab = "Frequency", main = "Histogram")
+
+# Pie chart of page views by referrer
+referrers <- table(website_data$referrer)
+pie(referrers, main = "Pie Chart of Page Views by Referrer", col = rainbow(length(referrers)))
+
+# Scatter plot matrix of relevant metrics
+pairs(website_data[, c("page_views", "time_spent", "bounce_rate")], main = "Scatter Plot Matrix")
+---------------------------------------------------------------------------------------------------------------------
+Basic R code for visualization.
+# Create a data frame with the provided data
+data <- data.frame(
+  "AgeGroup" = c("0-10", "11-30", "31-50", "51-80"),
+  "Dairy" = c(50, 35, 25, 40),
+  "StapleFood" = c(30, 45, 55, 40),
+  "HighCalorieFood" = c(10, 15, 13, 4),
+  "Supplements" = c(10, 5, 7, 16)
+)
+data_matrix <- as.matrix(data[, -1])
+# Plot a base histogram
+barplot(data_matrix, col = c("blue", "green", "red", "purple"),
+        main = "Daily Consumption by Age Group",
+        xlab = "Age Group", ylab = "Daily Consumption",
+        names.arg = data$AgeGroup, legend.text = colnames(data_matrix),
+        args.legend = list(title="Food Type", x = "topright", cex = 0.8),
+        beside = TRUE)
+
+1.take bar and put box for box plot
+2.take the bar to scatter plot
+3.for stacked bar chart put beside=FALSE or delete beside=true
+4.the above is for histogram.
+
+
+
+Line chart
+x <- 1:5  
+labels <- c("January", "February", "March", "April", "May")  
+y <- c(15000, 18000, 22000, 20000, 23000)
+plot(x, y, type="l", col="blue", xaxt="n", xlab="Month", ylab="Sales", main="Sales Over Time")
+axis(1, at=x, labels=labels)
+
+
+
+
+pie chart 3d
+# Load the plotrix package
+library(plotrix)
+
+
+# Data
+labels <- c("A", "B", "C", "D", "E")
+sizes <- c(20, 30, 25, 15, 10)
+colors <- c("red", "green", "blue", "orange", "purple")
+
+# Create 3D pie chart
+pie3D(sizes, labels=labels, explode=0.2, col=colors)
+
+for normal pie chart without referring color in vector:
+# Data
+labels <- c("A", "B", "C", "D", "E")
+sizes <- c(20, 30, 25, 15, 10)
+
+# Create pie chart
+pie(sizes, labels=labels, col=rainbow(sizes))
+
+pie chart with referring color in vector:
+# Data
+labels <- c("A", "B", "C", "D", "E")
+sizes <- c(20, 30, 25, 15, 10)
+colors <- c("red", "green", "blue", "orange", "purple")
+# Create pie chart
+pie(sizes, labels=labels, col=colors)
